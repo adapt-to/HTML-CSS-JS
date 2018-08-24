@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SCNU-公式计算</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <style type="text/css">     
+    .left {     
+      float:left;     
+      display:inline;     
+      width:280px;  
+      margin:20px 40px;    
+      border-style:outset;
+      border-radius:8px; 
+      background:pink; 
+      height:100px;
+    }     
+    .center{     
+      float:left;     
+      display:inline;     
+      width:280px;
+      margin:20px 40px;
+      border-style:outset; 
+      border-radius:8px; 
+      background:#c0f8ff; 
+      height:100px;
+    }     
+    .right{     
+      float:left;     
+      display:inline;     
+      width:280px;
+      margin:20px 40px;
+      border-style:outset; 
+      border-radius:8px; 
+      background:pink; 
+      height:100px;
+    }
+    #wo{
+      border-radius:10px;
+      background-image:url(http://ac.gtimg.com/media/images/ac_head_bg.png); 
+      display:flex;
+      flex-direction:column;
+      padding:0;
+      margin:40px;
+      font-size:18px;
+      text-align:center;
+    }
+    #footer {
+      border-radius:9px;
+      height: 40px;
+      line-height: 40px;
+      position: fixed;
+      bottom: 0;
+      width: 90%;
+      text-align: center;
+      background: lightblue;
+      
+      font-family: Arial;
+      font-size: 12px;
+      letter-spacing:1px;
+    }
+  </style> 
+
+
+  <body style="background-image:url(http://www.zcool.com.cn/community/0371e4d55deb7900000015995cabac7.jpg);font-family: 'Open Sans', sans-serif;padding: 5px 25px;font-size: 18px;margin: 0; width:100%;height:100%">
+    <div  id="wo">
+
+      <h1 style="  font-family: 'Merriweather', serif;font-size: 30px;">
+        <img style="weight:45px;height:45px;"src="http://119.23.36.28/labm/pattern/start/logo2.png"/>华南师大量子通信实验室</h1>
+      <p style="color:#ca00ff">公式计算网页
+        <button style="color:red;background:yellow;border-radius:8px;width:70px" id="confire" type="button" title="点击重置网页" onclick="location.reload()">一键恢复</button>
+      </p>
+    </div>   
+
+    
+    <div style="width:100%;height:100%">
+      <div class="left">
+        <b style="color:#1ABC9C">1.xx公式计算</b>
+        <div style="float:center;
+                    margin:10px;">
+          <input style="border-radius:8px;width:90px" type="text" id="name1" placeholder=" 输入检索条件" />
+          +
+          <input style="border-radius:8px;width:90px" type="text" id="name2" placeholder=" 输入检索条件" />
+          =
+          <span disabled="true" id="name3" />
+        </div>
+        <div style="float:center;
+                    margin:10px;">
+          <button style="color:red;background:yellow;border-radius:8px;" id="confire" type="button" onclick="getvalue();">计算</button>
+          <button style="color:red;background:yellow;border-radius:8px;" id="confire" type="button" title="点击清空计算条件" onclick="reload();">恢复</button>
+        </div>
+      </div>
+
+      <div class="center">
+        <b style="color:#1ABC9C">2.xx公式计算</b>
+        <div style="float:center;
+                    margin:10px;">
+          <input style="border-radius:8px;width:90px" type="text" id="" placeholder=" 输入检索条件" />
+          +
+          <input style="border-radius:8px;width:90px" type="text" id="" placeholder=" 输入检索条件" />
+          =
+          <span disabled="true" id="" />
+        </div>
+        <div style="float:center;
+                    margin:10px;">
+          <button style="color:red;background:yellow;border-radius:8px;" id="" type="button" onclick="getvalue();">计算</button>
+          <button style="color:red;background:yellow;border-radius:8px;" id="" type="button" title="点击清空计算条件" onclick="reload();">恢复</button>
+        </div>
+      </div>
+
+      <div class="right">
+        <b style="color:#1ABC9C">3.xx公式计算</b>
+        <div style="float:center;
+                    margin:10px;">
+          <input style="border-radius:8px;width:90px" type="text" id="" placeholder=" 输入检索条件" />
+          +
+          <input style="border-radius:8px;width:90px" type="text" id="" placeholder=" 输入检索条件" />
+          =
+          <span disabled="true" id=""/>
+        </div>
+        <div style="float:center;
+                    margin:10px;">
+          <button style="color:red;background:yellow;border-radius:8px;" id="" type="button" onclick="getvalue();">计算</button>
+          <button style="color:red;background:yellow;border-radius:8px;" id="" type="button" title="点击清空计算条件" onclick="reload();">恢复</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">©2018 <a href="http://119.23.36.28/labm/pattern/frame/frame.html" >LABM</a>/Theme by <a href="http://www.myheyufei.com" target="_blank">heyufei</a> </div>
+  </body>
+
+  <script type="text/javascript">
+    function getvalue()
+    {
+      var name1 = document.getElementById("name1").value;
+      //alert(name1);
+      var name2 = document.getElementById("name2").value;
+      //alert(name2);
+      if (name1==""||name2==""){alert("请正确输入计算条件！");return;}
+      if (isNaN(name1) ==true||isNaN(name2) ==true){alert("请正确输入计算条件！");return;}
+      var value1 = parseFloat(name1) + parseFloat(name2);
+      var demoP=document.getElementById("name3");
+      demoP.innerHTML=value1;
+    }
+    function reload()
+    {
+      var name1 = document.getElementById("name1");
+      name1.value = "";
+      var name2 = document.getElementById("name2");
+      name2.value = "";
+      var value1 = document.getElementById("name3");
+      value1.innerHTML = "";
+      //location.reload();
+    }
+
+  </script>
+</html>
